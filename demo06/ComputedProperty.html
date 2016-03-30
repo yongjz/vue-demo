@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computed Property</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="fullName">
+    <p>firstName: {{ firstName }}</p>
+    <p>lastName: {{ lastName }}</p>
+    <p>fullName: {{ fullName }}</p>
+  </div>
+  
+  <script src="../build/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+      computed: {
+        fullName: {
+          get: function() {
+            return this.firstName + ' ' + this.lastName;
+          },
+          set: function(value) {
+            var name = value.split(' ');
+            this.firstName = name[0];
+            this.lastName = name[name.length - 1];
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
