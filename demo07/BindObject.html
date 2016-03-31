@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bind Object</title>
+  <style>
+    .class-a {
+      background-color: red;
+      width: 50px;
+      height: 50px;
+    }
+    .class-b {
+      border: 5px solid yellow;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div v-bind:class="classObject" v-on:click="changeClass"></div>
+    <div v-bind:style="styleObj" v-on:click="changeStyle"></div>
+  </div>
+  
+  <script src="../build/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        classObj: {
+          'class-a': true,
+          'class-b': false,
+        },
+        styleObj: {
+          backgroundColor: 'yellow',
+          width: '50px',
+          height: '50px',
+        }
+      },
+      computed: {
+        classObject: {
+          get: function() {
+            return this.classObj;
+          },
+          set: function(value) {
+            this.classObj = value;
+          }
+        },
+        styleObject: {
+          get: function() {
+            return this.styleObj;
+          },
+          set: function(value) {
+            this.styleObj = value;
+          }
+        },
+      },
+      methods: {
+        changeClass: function() {
+          this.classObject = {
+            'class-a': true,
+            'class-b': true
+          };
+        },
+        changeStyle: function() {
+          this.styleObject = {
+            backgroundColor: 'blue',
+            width: '50px',
+            height: '50px',
+            border: '5px solid yellow'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

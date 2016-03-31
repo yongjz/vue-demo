@@ -9,7 +9,7 @@
     <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
     <input type="button" value="add" v-on:click="addTodo">
     <ul>
-      <li v-for="todo in todos">
+      <li v-for="todo of todos">
         <span>{{ todo.text }}</span>
         <button v-on:click="removeTodo($index)">X</button>
       </li>
