@@ -9,5 +9,8 @@ vue.js demo
 1. [Handle user input](#demo04)
 1. [Todo list](#demo05)
 1. [Computed Properties](#demo06)
+1. [BindObject](#demo07)
+1. [Form](#demo08)
+1. [Components](#demo09)
 
 ---
